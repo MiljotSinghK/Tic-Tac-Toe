@@ -64,12 +64,22 @@ def opponent_logic():
     return opponent_turn(possibility)
 
 def opponent_turn(possibility):
+    possibility=list(filter(lambda x:free[x-1]==-1,possibility))
     
     if len(possibility):
-        turn =possibility[0]-1
-        possibility.pop(0)
+        if difficulty=="H": 
+            turn =possibility[0]-1
+            possibility.pop(0)
+        elif difficulty=="M":
+            possibility+=random.sample([i for i in range(len(free)) if free[i]==-1],2)
+            turn =random.choice(possibility[0:len(possibility)//2])-1
+        elif difficulty=="E":
+            possibility+=[i for i in range(len(free)) if free[i]==-1]
+            turn =random.choice(possibility)-1
     else:
         turn =random.randint(0,8)
+
+    print(possibility,"turn-",turn+1)
 
     if free[turn]==-1:
         grid[turn//3][turn%3]=2
@@ -98,9 +108,13 @@ def check_lose():
             lose=True
     return lose
 
-print("You are O, your opponent is X\nThese are the indexes for playing ,Enter your number to start...")
+print("You are O, your opponent is X\nChoose difficulty [Easy (E) ,Medium (M) ,Hard (H)]")
+difficulty=input().upper()
+while difficulty not in ["E","H","M"]:
+    print("Invalid difficulty setting ,choose from E, M, H")
 
 printboard()
+print("These are the indexes for playing ,Enter your number to start...")
 while (-1 in free):
     time.sleep(1)
     printboard(1)
