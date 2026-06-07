@@ -13,12 +13,12 @@ A simple command-line Tic-Tac-Toe game built using Python. The game allows a hum
    python TicTacToe.py
    ```
 2. The board will display positions numbered from 1 to 9:
-   ```text
-   1 | 2 | 3
-  ---+---+---
-   4 | 5 | 6
-  ---+---+---
-   7 | 8 | 9
+   ```
+    1 | 2 | 3
+   ---+---+---
+    4 | 5 | 6
+   ---+---+---
+    7 | 8 | 9
    ```
 3. You play as **O** and the computer plays as **X**.
 4. Enter a number between 1 and 9 to place your mark on the corresponding cell.
@@ -28,6 +28,5 @@ A simple command-line Tic-Tac-Toe game built using Python. The game allows a hum
 - Python 3.x
 
 ## Code Improvements & Future Enhancements
-- Refactor recursion in input validation to iterative loops to prevent potential `RecursionError`.
-- Improve AI logic using the Minimax algorithm for an unbeatable opponent.
-- Fix edge-case win conditions on the final move.
+- Is hard coded in some places ,but necessity is the mother of invention ,in my opinion
+- UI can be made better
