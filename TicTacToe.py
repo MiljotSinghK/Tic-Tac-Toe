@@ -79,7 +79,7 @@ def opponent_turn(possibility):
     else:
         turn =random.randint(0,8)
 
-    print(possibility,"turn-",turn+1)
+
 
     if free[turn]==-1:
         grid[turn//3][turn%3]=2
