@@ -60,11 +60,13 @@ def opponent_logic():
         possibility.append(3)
     if (free[4]==-1):
         possibility.append(5)
-    
+    if grid[1][1]==1 or grid[1][1]==2:
+                possibility.extend([1,3,7,9])
     return opponent_turn(possibility)
 
 def opponent_turn(possibility):
     possibility=list(filter(lambda x:free[x-1]==-1,possibility))
+    
     
     if len(possibility):
         if difficulty=="H": 
@@ -137,3 +139,4 @@ while (-1 in free):
         printboard(1)
         print("You LOST")
         break
+time.sleep(15)
